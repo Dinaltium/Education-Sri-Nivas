@@ -1,16 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homepage</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h1>Welcome to the Homepage</h1>
-      <p>This is the homepage after successful login.</p>
-      <a href="login.html">Logout</a>
+    <title>Education Dashboard</title>
+    <link rel="stylesheet" href="Style1.css" />
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="homepage.html">Home</a>
+            <a href="calendar.html">Calendar</a>
+            <a href="news.html">News</a>
+            <a href="Assignments.html">Assignments</a>
+            <div class="dropdown">
+                <button class="dropbtn">More
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">Attendance Status</a>
+                    <div class="dropdown">
+                        <button class="dropbtn">Exam
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content-1">
+                            <a href="ia-score.html">IA Score</a>
+                            <a href="external.html">External Score</a>
+                        </div>
+                    </div>
+                    <a href="#">Link 3</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="dashboard">
+        <div class="card">
+            <h2>Upcoming Classes & Events</h2>
+            <p>Event 1: Science Workshop on 25th Oct</p>
+            <p>Event 2: Math Quiz on 30th Oct</p>
+            <p>Class 1: Physics at 10:00 AM</p>
+        </div>
+
+        <div class="card">
+            <h2>Live Classroom Temperature</h2>
+            <p>Inside Classroom: <span class="temperature">23°C</span></p>
+            <p>Outside Temperature: <span class="temperature">28°C</span> (Placeholder)</p>
+        </div>
+
+        <div class="card">
+            <h2>Submission Reminders</h2>
+            <p>Assignment 1: Chemistry due by 27th Oct</p>
+            <p>Project: Biology report due by 3rd Nov</p>
+        </div>
+
+        <div class="card">
+            <h2>Warnings & Notifications</h2>
+            <p>Attendance Warning: 75% minimum attendance required</p>
+            <p>Reminder: Wear sports uniform for tomorrow’s PE class</p>
+        </div>
     </div>
-  </body>
+
+    <script src="script.js"></script>
+</body>
 </html>

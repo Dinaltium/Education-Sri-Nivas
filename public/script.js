@@ -1,6 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
     const studentForm = document.getElementById("student-login-form");
     const teacherForm = document.getElementById("teacher-login-form");
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('visible'); // Toggle visibility
+    });
+
   
     // Show the student login form by default
     studentForm.style.display = "block";
@@ -15,6 +22,14 @@ document.addEventListener("DOMContentLoaded", () => {
       teacherForm.style.display = "block";
       studentForm.style.display = "none";
     });
+    
+    document.addEventListener('click', (event) => {
+        const isClickInside = hamburger.contains(event.target) || navMenu.contains(event.target);
+        if (!isClickInside) {
+            navMenu.classList.remove('visible'); // Close the dropdown if clicking outside
+        }
+    });  
+    
   
     // Event listener for the student login form
     studentForm
