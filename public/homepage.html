@@ -1,16 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homepage</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h1>Welcome to the Homepage</h1>
-      <p>This is the homepage after successful login.</p>
-      <a href="login.html">Logout</a>
-    </div>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom Dashboard</title>
+    <link rel="stylesheet" href="Style1.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Classroom Dashboard</h1>
+    </header>
+
+    <main>
+        <!-- Section 1: Upcoming Classes and Events -->
+        <section id="upcoming-classes">
+            <h2>Upcoming Classes and Events</h2>
+            <ul id="class-list">
+                <!-- Add dynamic class/event information here -->
+                <li>Math - October 21, 10:00 AM</li>
+                <li>Science - October 22, 12:00 PM</li>
+                <li>Workshop - October 24, 9:00 AM</li>
+            </ul>
+        </section>
+
+        <!-- Section 2: Live Temperature (Inside & Outside) -->
+        <section id="temperature">
+            <h2>Live Temperature</h2>
+            <p>Inside Classroom: <span id="inside-temp">25°C</span></p>
+            <p>Outside: <span id="outside-temp">28°C</span></p>
+        </section>
+
+        <!-- Section 3: Reminders for Submissions/Assignments -->
+        <section id="reminders">
+            <h2>Reminders for Submissions</h2>
+            <ul id="reminder-list">
+                <!-- Add dynamic reminders here -->
+                <li>Assignment 1 due: October 25</li>
+                <li>Project submission: October 27</li>
+            </ul>
+        </section>
+
+        <!-- Section 4: Warnings/Notifications -->
+        <section id="warnings">
+            <h2>Warnings &amp; Notifications</h2>
+            <ul id="warning-list">
+                <!-- Add dynamic warnings/notifications here -->
+                <li>Attendance shortage: 65%</li>
+                <li>Bring lab coat for Chemistry class tomorrow</li>
+            </ul>
+        </section>
+    </main>
+</body>
 </html>
