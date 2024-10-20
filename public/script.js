@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
       teacherForm.style.display = "block";
       studentForm.style.display = "none";
     });
+    
+    document.getElementById("hamburger").addEventListener("click", () => {
+        const navbar = document.getElementById("navbar");
+        navbar.classList.toggle("hidden");
+    });
+    
   
     // Event listener for the student login form
     studentForm

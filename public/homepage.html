@@ -1,54 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classroom Dashboard</title>
-    <link rel="stylesheet" href="Style1.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Education Dashboard</title>
+    <link rel="stylesheet" href="Style1.css" />
 </head>
 <body>
     <header>
-        <h1>Welcome to the Classroom Dashboard</h1>
+        <div class="header-container">
+            <h1>MMANIT</h1>
+            <div class="hamburger" id="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+        <nav id="navbar" class="hidden">
+            <ul>
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="scores.html">Scores</a></li>
+                <li><a href="attendance.html">Attendance</a></li>
+                <li><a href="course.html">Course</a></li>
+                <li><a href="personal-details.html">Personal Details</a></li>
+                <li><a href="syllabus.html">Syllabus</a></li>
+                <li><a href="study-materials.html">Study Materials</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
-        <!-- Section 1: Upcoming Classes and Events -->
-        <section id="upcoming-classes">
-            <h2>Upcoming Classes and Events</h2>
-            <ul id="class-list">
-                <!-- Add dynamic class/event information here -->
-                <li>Math - October 21, 10:00 AM</li>
-                <li>Science - October 22, 12:00 PM</li>
-                <li>Workshop - October 24, 9:00 AM</li>
-            </ul>
-        </section>
+    <div class="dashboard">
+        <div class="card">
+            <h2>Upcoming Classes & Events</h2>
+            <p>Event 1: Science Workshop on 25th Oct</p>
+            <p>Event 2: Math Quiz on 30th Oct</p>
+            <p>Class 1: Physics at 10:00 AM</p>
+        </div>
 
-        <!-- Section 2: Live Temperature (Inside & Outside) -->
-        <section id="temperature">
-            <h2>Live Temperature</h2>
-            <p>Inside Classroom: <span id="inside-temp">25°C</span></p>
-            <p>Outside: <span id="outside-temp">28°C</span></p>
-        </section>
+        <div class="card">
+            <h2>Live Classroom Temperature</h2>
+            <p>Inside Classroom: <span class="temperature">23°C</span></p>
+            <p>Outside Temperature: <span class="temperature">28°C</span> (Placeholder)</p>
+        </div>
 
-        <!-- Section 3: Reminders for Submissions/Assignments -->
-        <section id="reminders">
-            <h2>Reminders for Submissions</h2>
-            <ul id="reminder-list">
-                <!-- Add dynamic reminders here -->
-                <li>Assignment 1 due: October 25</li>
-                <li>Project submission: October 27</li>
-            </ul>
-        </section>
+        <div class="card">
+            <h2>Submission Reminders</h2>
+            <p>Assignment 1: Chemistry due by 27th Oct</p>
+            <p>Project: Biology report due by 3rd Nov</p>
+        </div>
 
-        <!-- Section 4: Warnings/Notifications -->
-        <section id="warnings">
-            <h2>Warnings &amp; Notifications</h2>
-            <ul id="warning-list">
-                <!-- Add dynamic warnings/notifications here -->
-                <li>Attendance shortage: 65%</li>
-                <li>Bring lab coat for Chemistry class tomorrow</li>
-            </ul>
-        </section>
-    </main>
+        <div class="card">
+            <h2>Warnings & Notifications</h2>
+            <p>Attendance Warning: 75% minimum attendance required</p>
+            <p>Reminder: Wear sports uniform for tomorrow’s PE class</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
