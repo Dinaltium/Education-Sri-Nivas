@@ -3,36 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-</head>
-<link rel="stylesheet" href="Style.css">
-<body>
+    <title>Sign Up Form</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHq6K3azYv5NE1FwCT3ghRxScHH5ebLOhiOIXx4OAFWd5J2UuRvqQmwQ0GlHBNTJ86dv3v1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="container">
       <div class="form-box">
-        <h1>Sign_up</h1>
+        <h1>Sign Up</h1>
         <form>
           <div class="input-group">
             <div class="input-field">
-              <i class="fa-solid fa-user"></i>
-              <input type="text" placeholder="Name" />
+              <i class="fa fa-user"></i>
+              <input type="text" placeholder="Name" required />
             </div>
-
-                    <div class="input-field">
-                        <i class="fa-solid fa-user"></i>
-                        <input type="Email" placeholder="Email">
-
-                    </div>
-                    <div class="input-field">
-                        <i class="fa-solid fa-user"></i>
-                        <input type="Password" placeholder="Password">
-
-
-                    </div>
-
-                    
-                </div>
-            </form>
-        </div>
+            <div class="input-field">
+              <i class="fa fa-envelope"></i>
+              <input type="email" placeholder="Email" required />
+            </div>
+            <div class="input-field">
+              <i class="fa fa-lock"></i>
+              <input type="password" placeholder="Password" required />
+            </div>
+            <button type="submit" class="submit-btn">Sign Up</button>
+          </div>
+        </form>
+      </div>
     </div>
   </body>
 </html>
