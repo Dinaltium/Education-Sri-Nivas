@@ -146,7 +146,6 @@ body {
 
 .card {
     background-color: #ffffff; /* White background for the card */
-    width: 300px; /* Fixed width */
     height: 400px; /* Fixed height */
     border: 1px solid #ddd; /* Light grey border */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
@@ -154,7 +153,6 @@ body {
     padding: 16px; /* Inner padding */
     display: none; /* Hide all cards by default */
     margin: auto; /* Center the card horizontally */
-  display: none; /* Hide all cards by default */
 }
 
 .card:first-child {
@@ -197,12 +195,11 @@ body {
 }
 .dots {
     position: absolute;
-    bottom: 10px;
+    bottom: 20px;
     left: 50%; 
     transform: translateX(-50%);
     display: flex; 
-    justify-content: center;
-    align-items: center;
+
 }
 .dot {
     
