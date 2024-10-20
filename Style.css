@@ -8,7 +8,8 @@
 .container {
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(to right, #74ebd5, #acb6e5);
+  background-image: linear-gradient(to right, rgba(116, 235, 213, 0.6), rgba(172, 182, 229, 0.6)), 
+                    url('blob:https://web.whatsapp.com/0f86a1d5-9102-41c2-8c2a-65474de69a23.jpg'); 
   background-position: center;
   background-size: cover;
   position: relative;
