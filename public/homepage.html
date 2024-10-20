@@ -34,32 +34,52 @@
         </div>
     </header>
     <div class="dashboard">
+        <div class="slider"> 
+
         <div class="card">
-            <h2>Upcoming Classes & Events</h2>
+            <div class="numbertext">1 / 4</div>
+            <h2 class="text">Upcoming Classes & Events</h2>
             <p>Event 1: Science Workshop on 25th Oct</p>
             <p>Event 2: Math Quiz on 30th Oct</p>
             <p>Class 1: Physics at 10:00 AM</p>
         </div>
-
+    
         <div class="card">
-            <h2>Live Classroom Temperature</h2>
+            <div>
+            <div class="numbertext">2 / 4</div>
+            <h2 class="text">Live Classroom Temperature</h2>
             <p>Inside Classroom: <span class="temperature">23°C</span></p>
             <p>Outside Temperature: <span class="temperature">28°C</span> (Placeholder)</p>
+            </div>
         </div>
-
+    
         <div class="card">
-            <h2>Submission Reminders</h2>
+            <div class="numbertext">3 / 4</div>
+            <h2 class="text">Submission Reminders</h2>
             <p>Assignment 1: Chemistry due by 27th Oct</p>
             <p>Project: Biology report due by 3rd Nov</p>
         </div>
-
+    
         <div class="card">
-            <h2>Warnings & Notifications</h2>
+            <div class="numbertext">4 / 4</div>
+            <h2 class="text">Warnings & Notifications</h2>
             <p>Attendance Warning: 75% minimum attendance required</p>
             <p>Reminder: Wear sports uniform for tomorrow’s PE class</p>
         </div>
-    </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+  
+        <!-- The dots/circles -->
+        <div class="dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+    </div> 
 
-    <script src="script.js"></script>
+    <script src="script2.js"></script>
 </body>
 </html>
