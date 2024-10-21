@@ -8,13 +8,6 @@
 
 body {
   height: 100vh;
-<<<<<<< HEAD
-  background-image: linear-gradient(to right, rgba(116, 235, 213, 0.6), rgba(172, 182, 229, 0.6)), 
-                    url('../assets/edu image.jpeg'); 
-  background-position: center;
-  background-size: contain; /* Changed to 'contain' */
-  position: relative;
-=======
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,16 +22,11 @@ body {
 .container {
   width: 100%;
   max-width: 1200px;
->>>>>>> 0c9608dcee2fe4ac241aaca5314ce2fbe130f222
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-<<<<<<< HEAD
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-=======
   padding: 20px;
->>>>>>> 0c9608dcee2fe4ac241aaca5314ce2fbe130f222
 }
 
 /* Title Styling */
