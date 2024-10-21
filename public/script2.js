@@ -31,11 +31,6 @@ function showSlides(n) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
 
-<<<<<<< HEAD
-  slides[slideIndex - 1].style.display = "block"; // Show the current slide
-  dots[slideIndex - 1].className += " active"; // Set the current dot as active
-}
-=======
   slides[slideIndex - 1].style.display = "block";
   dots[slideIndex - 1].className += " active";
 }
@@ -114,4 +109,3 @@ async function fetchOutsideTemperature() {
 // Fetch outside temperature every 5 minutes
 setInterval(fetchOutsideTemperature, 300000);
 fetchOutsideTemperature();
->>>>>>> 0c9608dcee2fe4ac241aaca5314ce2fbe130f222
