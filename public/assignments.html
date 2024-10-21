@@ -4,19 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment Section</title>
-    <link rel="stylesheet" href="style2.css">
-    <scripted src="script.js" defer></scripted>  <!-- Corrected to script -->
-    <!-- social links for refinedguides.com -->
-    <scripted src="https://refinedguides.com/assets/social.js?linkColor=%23fff&textColor=%32333" defer></scripted>  <!-- Corrected to script -->
+    <link rel="stylesheet" href="Style2.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Assignments Dashboard</h1>
+            <h1>Assignments</h1>
         </header>
 
         <section class="assignment-dashboard">
-            <h2>Upcoming Assignments</h2>
+            
             <div class="assignment-list">
                 <div class="assignment-card">
                     <h3>Math Assignment</h3>
@@ -25,13 +22,50 @@
                     <button class="view-details" onclick="showAssignmentDetails('Math Assignment')">View Details</button>
                 </div>
                 <div class="assignment-card">
-                    <h3>Biology Project</h3>
+                    <h3>Python Assignment</h3>
                     <p>Due Date: Nov 3, 2024</p>
                     <p>Status: <span class="status pending">Pending</span></p>
                     <button class="view-details" onclick="showAssignmentDetails('Biology Project')">View Details</button>
                 </div>
+
+                <div class="assignment-card">
+                  <h3>DSA Assignment</h3>
+                  <p>Due Date: Nov 3, 2024</p>
+                  <p>Status: <span class="status pending">Pending</span></p>
+                  <button class="view-details" onclick="showAssignmentDetails('Biology Project')">View Details</button>
+              </div>
+
+              <div class="assignment-card">
+                <h3>OS Assignment</h3>
+                <p>Due Date: Nov 3, 2024</p>
+                <p>Status: <span class="status pending">Pending</span></p>
+                <button class="view-details" onclick="showAssignmentDetails('Biology Project')">View Details</button>
+            </div>
                 <!-- Add more assignment cards as needed -->
             </div>
         </section>
 
-      
+        <!-- Assignment Details Modal -->
+        <div id="assignmentModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 id="assignmentTitle"></h2>
+                <p id="assignmentDetails">Complete the assignment and submit it before the deadline.</p>
+
+                <!-- Upload Portal -->
+                <div class="upload-portal">
+                    <h3>Submit Your Assignment</h3>
+                    <input type="file" id="fileUpload" accept=".pdf,.doc,.docx">
+                    <button class="submit-btn" onclick="submitAssignment()">Submit</button>
+                    <p id="uploadStatus"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendar View (Example placeholder) -->
+       
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

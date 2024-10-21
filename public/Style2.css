@@ -1,9 +1,10 @@
 /* General Styles */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #c4cdba;
   margin: 0;
   padding: 0;
+  background-image: url('../Assets/Jitter-Pink-perfect-loop-cubes.gif');
 }
 
 .container {
@@ -16,8 +17,10 @@ header {
   padding: 20px 0;
 }
 
-h1, h2 {
-  color: #333;
+h1{
+  color: #f3f3f3;
+  font-size: 3rem;
+
 }
 
 /* Assignment Dashboard */
@@ -28,13 +31,14 @@ h1, h2 {
 .assignment-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 3rem;
+  margin-left: 5.9rem;
 }
 
 .assignment-card {
   background-color: #fff;
   border: 1px solid #ddd;
-  padding: 20px;
+  padding: 4rem;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   flex-basis: 30%;
@@ -42,10 +46,12 @@ h1, h2 {
 
 .assignment-card h3 {
   margin-bottom: 10px;
+  padding: 0.5rem;
 }
 
 .assignment-card p {
   margin: 5px 0;
+  padding: 0.5rem;
 }
 
 .status {

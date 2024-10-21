@@ -1,81 +1,36 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const studentLoginForm = document.getElementById("student-login-form");
-  const teacherLoginForm = document.getElementById("teacher-login-form");
+const login = document.getElementById('login');
 
-  // Show the student login form by default
-  studentLoginForm.style.display = "block";
+login.addEventListener('click', loginUser);
 
-  // Event listeners for the role selection buttons
-  document.getElementById("student-login-btn").addEventListener("click", () => {
-      studentLoginForm.style.display = "block";
-      teacherLoginForm.style.display = "none";
-  });
+const loginUSN = document.getElementById('loginUSN'); // Update to USN
+const h1 = document.getElementById('h1');
+const loginPass = document.getElementById('loginPass');
 
-  document.getElementById("teacher-login-btn").addEventListener("click", () => {
-      teacherLoginForm.style.display = "block";
-      studentLoginForm.style.display = "none";
-  });
+function loginUser() {
+    if (loginUSN.value === '' || loginPass.value === '') {
+        alert('Empty fields');
+    }
+    console.log(loginUSN.value);
+    loginUserRequest(loginUSN.value, loginPass.value);
+}
 
-  // Event listener for the student login form
-  document.getElementById("student-login").addEventListener("click", async () => {
-      const username = document.getElementById('student-username').value;
-      const usn = document.getElementById('student-usn').value;
-      const password = document.getElementById('student-password').value;
+async function loginUserRequest(usn, password) { // Change email to USN
+    const user = await fetch('/App/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            usn, // Change to usn
+            password,
+        }),
+    });
 
-      if (!username || !usn || !password) {
-          alert('Please fill in all fields.');
-          return;
-      }
-
-      try {
-          const response = await fetch("/App/login", {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ username, usn, password }),
-          });
-
-          if (response.ok) {
-              // Redirect to homepage.html on successful login
-              window.location.href = "homepage.html";
-          } else {
-              alert("Login failed. Please check your credentials.");
-          }
-      } catch (error) {
-          console.error("Error:", error);
-          alert("An error occurred. Please try again later.");
-      }
-  });
-
-  // Event listener for the teacher login form
-  document.getElementById("teacher-login").addEventListener("click", async () => {
-      const teacherId = document.getElementById('teacher-id').value;
-      const password = document.getElementById('teacher-password').value;
-
-      if (!teacherId || !password) {
-          alert('Please fill in all fields.');
-          return;
-      }
-
-      try {
-          const response = await fetch("/App/login", {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ teacherId, password }),
-          });
-
-          if (response.ok) {
-              // Redirect to homepage.html on successful login
-              window.location.href = "homepage.html";
-          } else {
-              alert("Login failed. Please check your credentials.");
-          }
-      } catch (error) {
-          console.error("Error:", error);
-          alert("An error occurred. Please try again later.");
-      }
-  });
-});
+    if (!user.ok) {
+        alert('Invalid login. Please check your USN or password.');
+    } else {
+        const data = await user.json();
+        alert('Successful login');
+        h1.innerHTML = usn;
+    }
+}
