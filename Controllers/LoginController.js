@@ -1,22 +1,28 @@
-const User = require('../Models/registerModle'); // Import the User model
-const AppError = require('../Utils/appError'); // Ensure AppError is defined
+import User from '../Models/registerModle.js';  // Ensure this points to the correct User model
 
-exports.login = async (req, res, next) => {
-    const { usn, password } = req.body; // Change email to usn
-    if (!usn || !password) {
-        return next(new AppError('Please provide a USN and password', 400));
+// Example login function
+export const login = async (req, res) => {
+    const { username, password } = req.body;  // Assuming you're sending username and password
+
+    try {
+        // Logic for verifying user credentials
+        const user = await User.findOne({ username });
+
+        if (!user) {
+            return res.status(401).json({ message: 'User not found' });
+        }
+
+        // Compare passwords here (using bcrypt for hashing)
+        // const isMatch = await bcrypt.compare(password, user.password);
+        
+        // if (!isMatch) {
+        //     return res.status(401).json({ message: 'Invalid credentials' });
+        // }
+
+        return res.status(200).json({ message: 'Login successful', user });
+    } catch (error) {
+        return res.status(500).json({ message: 'Server error', error });
     }
-
-    // Find user by USN
-    const user = await User.findOne({ usn: usn }).select('+password');
-
-    // Check if user exists and password matches
-    if (!user || !(await user.correctPassword(password))) {
-        return next(new AppError('The USN or password is incorrect', 400));
-    }
-
-    res.status(200).json({
-        status: 'success',
-        message: 'You are logged in',
-    });
 };
+
+// Export additional functions as needed
