@@ -1,3 +1,4 @@
+// Slideshow functionality
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -13,8 +14,8 @@ function currentSlide(n) {
 
 function showSlides(n) {
   let i;
-  let slides = document.getElementsByClassName("card"); // Assuming "card" is the class for slides
-  let dots = document.getElementsByClassName("dot"); // Assuming "dot" is the class for indicators
+  let slides = document.getElementsByClassName("card");
+  let dots = document.getElementsByClassName("dot");
   if (n > slides.length) {
     slideIndex = 1;
   }
@@ -23,48 +24,42 @@ function showSlides(n) {
   }
 
   for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none"; // Hide all slides
+    slides[i].style.display = "none";
   }
 
   for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", ""); // Remove active class from all dots
+    dots[i].className = dots[i].className.replace(" active", "");
   }
 
-  slides[slideIndex - 1].style.display = "block"; // Show the current slide
-  dots[slideIndex - 1].className += " active"; // Set the current dot as active
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " active";
 }
 
-// ================================================
+// ===================================================
 // Fetching data from ESP32 and warning system
-// ================================================
-
-// URL of the ESP32 that provides JSON data
-const esp32Url = "http://192.168.43.36/json"; // Updated endpoint
+// ===================================================
+const esp32Url = "http://192.168.43.36";
 
 // Temperature and gas thresholds
-const TEMP_THRESHOLD = 32;  // Example threshold for temperature in °C
-const GAS_THRESHOLD = 100;  // Example threshold for gas resistance in KOhms
+const TEMP_THRESHOLD = 30;
+const GAS_THRESHOLD = 100;
 
-// Function to fetch sensor data from the ESP32
+// Fetch sensor data from ESP32
 async function fetchSensorData() {
   try {
-    const response = await fetch(esp32Url, {
-      method: 'GET',
-      mode: 'cors' // Ensure CORS is enabled
-    });
+    const response = await fetch(esp32Url);
     const data = await response.json();
 
     const insideTemp = data.temperature;
     const gasResistance = data.gas_resistance;
 
-    // Update the webpage (assume class 'temperature' exists in the HTML)
+    // Update inside classroom temperature
     document.querySelector(".temperature").innerHTML = insideTemp + "°C";
 
     // Check for warnings
     if (insideTemp > TEMP_THRESHOLD || gasResistance < GAS_THRESHOLD) {
       triggerWarning(insideTemp, gasResistance);
     } else {
-      // If no warning, reset warnings text
       document.querySelector(".warnings").innerHTML = "No warnings.";
     }
   } catch (error) {
@@ -72,7 +67,7 @@ async function fetchSensorData() {
   }
 }
 
-// Function to trigger warning
+// Function to trigger a warning
 function triggerWarning(temperature, gasResistance) {
   let warningMessage = "Warning! ";
 
@@ -83,14 +78,34 @@ function triggerWarning(temperature, gasResistance) {
     warningMessage += `Low gas resistance: ${gasResistance} KOhms. `;
   }
 
-  // Display the warning in the warning section
-  const warningSection = document.querySelector(".warnings");
-  warningSection.innerHTML = warningMessage;
+  document.querySelector(".warnings").innerHTML = warningMessage;
 
-  // Play a sound alert
-  const alertSound = new Audio("../Assets/alert-sound.mp3"); // Use any alert sound file here
+  const alertSound = new Audio("../Assets/alert-sound.mp3");
   alertSound.play();
 }
 
-// Fetch sensor data periodically (every 5 seconds)
+// Fetch sensor data every 5 seconds
 setInterval(fetchSensorData, 5000);
+
+// ===============================================
+// Fetching outside temperature (Mangalore) data
+// ===============================================
+const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Mangalore&units=metric&appid=6d53ee69c656480549a63a53fa342e16`;
+
+async function fetchOutsideTemperature() {
+  try {
+    const response = await fetch(weatherApiUrl);
+    const data = await response.json();
+
+    const outsideTemp = data.main.temp;
+
+    // Update the outside temperature
+    document.querySelector(".outside-temperature").innerHTML = outsideTemp + "°C";
+  } catch (error) {
+    console.error("Error fetching outside temperature:", error);
+  }
+}
+
+// Fetch outside temperature every 5 minutes
+setInterval(fetchOutsideTemperature, 300000);
+fetchOutsideTemperature();
