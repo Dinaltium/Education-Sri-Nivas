@@ -4,8 +4,6 @@ body {
   background-color: #f0f2f5;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   height: 100vh;
 }
@@ -14,6 +12,8 @@ body {
 .navbar {
   background-color: #333;
   overflow: hidden;
+  display:flex;
+  justify-content: center;
 }
 
 /* Style the links inside the navigation bar */
@@ -26,10 +26,9 @@ body {
   font-size: 17px;
 }
 
-
 /* Add a color to the active/current link */
 .navbar a.active {
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   color: white;
 }
 
@@ -52,7 +51,8 @@ body {
 }
 
 /* Add a red background color to navbar links on hover */
-.navbar a:hover, .dropdown:hover .dropbtn {
+.navbar a:hover,
+.dropdown:hover .dropbtn {
   background-color: red;
 }
 
@@ -62,7 +62,7 @@ body {
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -75,7 +75,7 @@ body {
   display: block;
   text-align: left;
 }
-.dropdown-1{
+.dropdown-1 {
   float: left;
   overflow: hidden;
 }
@@ -97,7 +97,7 @@ body {
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 .dropdown-content-1 a {
@@ -136,37 +136,112 @@ body {
 
 /* Dashboard Styles */
 .dashboard {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  width: 80%;
-  max-width: 1200px;
+    display: flex;
+    max-width: auto;
+    padding: 20%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Ensure children are stacked vertically */
 }
 
 .card {
-  background-color: #ffffff;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  transition: transform 0.3s ease;
+    background-color: #ffffff; /* White background for the card */
+    width: 300px; /* Fixed width */
+    height: 400px; /* Fixed height */
+    border: 1px solid #ddd; /* Light grey border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+    padding: 16px; /* Inner padding */
+    display: none; /* Hide all cards by default */
+    margin: auto; /* Center the card horizontally */
+  display: none; /* Hide all cards by default */
 }
 
-.card:hover {
-  transform: translateY(-10px);
+.card:first-child {
+  display: block; /* Show the first card by default */
 }
 
-.card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: #333333;
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
 }
 
-.card p {
-  font-size: 1rem;
-  color: #666666;
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 100px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+.dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%; 
+    transform: translateX(-50%);
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+.dot {
+    
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .temperature {
   font-size: 2.5rem;
   color: #ff6f61;
+}
+.slider {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
 }
