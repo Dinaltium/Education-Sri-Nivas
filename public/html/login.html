@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://use.fontawesome.com/efcb6191f0.js"></script>
+    <link rel="stylesheet" href="../css/Style.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">Site Name</div>
+        <i class="fa fa-bars icon" class="icon" id="click" onclick="show()"></i>
+        <ul id="menu-bar">
+            <li class="list"><a class="link" href="#">Home</a></li>
+            <li class="list"><a class="link" href="#">Bug Finder</a></li>
+            <li class="list"><a class="link" href="#">Contact</a></li>
+            <li class="list"><a href="login.html" class="link auth-btn left-size">Login</a></li>
+            <li class="list"><a href="index.html" class="link auth-btn2">Register</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div class="login-container">
+
+            <div class="login-data">
+                <h1 id="h1">Account Login</h1>
+                <hr>
+                <div class="login-selection">
+                    <button id="student-login-btn" class="login-btn">Student Login</button>
+                    <button id="teacher-login-btn" class="login-btn">Teacher Login</button>
+                </div>
+
+                <div id="student-login-form" class="login-form">
+                    <div class="input-field" style="margin-top: 30px;">
+                        <i class="fa fa-user"></i>
+                        <input id="student-username" type="text" placeholder="Enter your username">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa fa-lock"></i>
+                        <input id="student-usn" type="text" placeholder="Enter your USN">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa fa-lock"></i>
+                        <input id="student-password" type="password" placeholder="Enter your password">
+                    </div>
+                    <button id="student-login" class="color-brown">Login</button>
+                </div>
+
+                <div id="teacher-login-form" class="login-form" style="display: none;">
+                    <div class="input-field" style="margin-top: 30px;">
+                        <i class="fa fa-user"></i>
+                        <input id="teacher-id" type="text" placeholder="Enter your Teacher ID">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa fa-lock"></i>
+                        <input id="teacher-password" type="password" placeholder="Enter your password">
+                    </div>
+                    <button id="teacher-login" class="color-brown">Login</button>
+                </div>
+            </div>
+        </div>
+        <footer></footer>
+        <script src="../js/login.js" defer></script>
+    </div>
+</body>
+</html>
