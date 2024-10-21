@@ -1,43 +1,34 @@
-const mongoose = require('mongoose')
-const validator = require('validator')
-const bcrypt = require('bcryptjs')
-const userSchema = new mongoose.Schema({
-    email: {
-        type: String,
+const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 
+// Define the user schema
+const userSchema = new mongoose.Schema({
+    usn: { // USN instead of email
+        type: String,
         required: true,
-        unique: true,
-        lowercase: true,
-        validate: [validator.isEmail]
+        unique: true, // Ensure USNs are unique
     },
     password: {
         type: String,
         required: true,
         minlength: 6,
     },
-    passwordConfirm: {
-        type: String,
-        validate: {
-            validator: function (el) {
-                return el === this.password
-            },
-            message: 'the passwords are not same'
-        }
-    }
-})
+});
 
+// Pre-save middleware to hash password
 userSchema.pre('save', async function (next) {
-    // only run this if the password was actually modified
-    if (!this.isModified('password')) return next()
-    this.password = await bcrypt.hash(this.password, 12)
-    this.passwordConfirm = undefined
-    next()
-})
+    // Only run this if the password was modified
+    if (!this.isModified('password')) return next();
+    this.password = await bcrypt.hash(this.password, 12); // Hash the password
+    next();
+});
 
-userSchema.methods.correctPassword = async function (candidatePassword, userPassword) {
-    return await bcrypt.compare(candidatePassword, userPassword)
-}
+// Method to check if the provided password matches the stored password
+userSchema.methods.correctPassword = async function (candidatePassword) {
+    return await bcrypt.compare(candidatePassword, this.password); // Compare passwords
+};
 
-const Fields = mongoose.model('Fields', userSchema)
+// Create a model from the schema
+const User = mongoose.model('User', userSchema);
 
-module.exports = Fields
+module.exports = User; // Export the model
